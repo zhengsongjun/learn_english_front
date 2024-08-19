@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import InsertCard from './InsertCard/InsertCard';
+import Practice from './Practice/Practice';
+import Question from './Question/Question';
 
 function App() {
   return (
+    <BrowserRouter >
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Link to={"/insertcard"}>插入问题</Link> 
+        <Link to={"/question"}>问题选择</Link> 
+        <Link to={"/practice"}>练习</Link> 
       </header>
+      <Routes>
+        <Route  path="/question" Component={Question} />
+        <Route  path="/practice" Component={Practice} />
+        <Route path="/insertcard" Component={InsertCard} />
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 
